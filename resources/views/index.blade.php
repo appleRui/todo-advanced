@@ -207,44 +207,9 @@
       border-radius: 10px;
     }
 
-    .card__header {
-      display: flex;
-      justify-content: space-between;
-    }
-
     .title {
       font-weight: bold;
       font-size: 24px;
-    }
-
-    .auth {
-      display: flex;
-      align-items: center;
-      font-size: 16px;
-    }
-
-    .auth>.detail {
-      margin-right: 1rem;
-    }
-
-    .button-logout {
-      text-align: left;
-      border: 2px solid #FF0000;
-      font-size: 12px;
-      color: #FF0000;
-      background-color: #fff;
-      font-weight: bold;
-      padding: 8px 16px;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: 0.4s;
-      outline: none;
-    }
-
-    .button-logout:hover {
-      background-color: #FF0000;
-      border-color: #FF0000;
-      color: #fff;
     }
 
     .input-add {
@@ -341,16 +306,7 @@
 <body>
   <div class="container">
     <div class="card">
-      <div class="card__header">
-        <p class="title mb-15">Todo List</p>
-        <div class="auth mb-15">
-          <p class="detail">「{{ $auth->name }}」でログイン中</p>
-          <form method="post" action="{{ route('logout') }}">
-            @csrf
-            <input class="button-logout" type="submit" value="ログアウト">
-          </form>
-        </div>
-      </div>
+      <p class="title mb-15">Todo List</p>
       @if (count($errors) > 0)
       <ul>
         @foreach ($errors->all() as $error)
