@@ -40,4 +40,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // 認証しているユーザーのタスクを取得
+    public function todos()
+    {
+        return $this->hasMany(Todo::class);
+    }
 }
