@@ -344,7 +344,7 @@
       <div class="card__header">
         <p class="title mb-15">Todo List</p>
         <div class="auth mb-15">
-          <p class="detail">「{{ $auth->name }}」でログイン中</p>
+          <p class="detail">「{{ $user->name }}」でログイン中</p>
           <form method="post" action="{{ route('logout') }}">
             @csrf
             <input class="button-logout" type="submit" value="ログアウト">

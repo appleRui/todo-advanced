@@ -8,11 +8,12 @@ use Illuminate\Support\Facades\Auth;
 
 class TodoController extends Controller
 {
-    public function index(Request $request)
+
+    public function index()
     {
-        $auth = Auth::user();
-        $items = Todo::all();
-        return view('index', ['items' => $items, 'auth' => $auth]);
+        $user = Auth::user();
+        $items = $user->todos;
+        return view('index', ['items' => $items, 'user' => $user]);
     }
     public function create(Request $request)
     {
@@ -20,6 +21,7 @@ class TodoController extends Controller
         $todo = new Todo;
         $form = $request->all();
         unset($form['_token_']);
+        $form['user_id'] = Auth::id();
         $todo->fill($form)->save();
         return redirect('/');
     }
