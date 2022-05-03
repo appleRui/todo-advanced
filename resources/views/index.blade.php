@@ -247,8 +247,16 @@
       color: #fff;
     }
 
+    .select-tag {
+      padding: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      outline: none;
+    }
+
     .input-add {
-      width: 80%;
+      width: 75%;
       padding: 5px;
       border-radius: 5px;
       border: 1px solid #ccc;
@@ -362,12 +370,18 @@
         <form action="/todo/create" method="post" class="flex between mb-30">
           @csrf
           <input type="text" class="input-add" name="content" />
+          <select name="tag_id" class="select-tag">
+            @foreach($tags as $tag)
+            <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+            @endforeach
+          </select>
           <input class="button-add" type="submit" value="追加" />
         </form>
         <table>
           <tr>
             <th>作成日</th>
             <th>タスク名</th>
+            <th>タグ</th>
             <th>更新</th>
             <th>削除</th>
           </tr>
@@ -380,6 +394,13 @@
               @csrf
               <td>
                 <input type="text" class="input-update" value="{{ $item->content }}" name="content" />
+              </td>
+              <td>
+                <select name="tag_id" class="select-tag">
+                  @foreach($tags as $tag)
+                  <option {{ $item->tag_id == $tag->id ? 'selected' : '' }} value="{{ $tag->id }}">{{ $tag->name }}</option>
+                  @endforeach
+                </select>
               </td>
               <td>
                 <button class="button-update">更新</button>
