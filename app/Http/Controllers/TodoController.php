@@ -9,7 +9,7 @@ class TodoController extends Controller
 {
     public function index(Request $request)
     {
-        $items = Todo::all();
+        $items = Todo::where('is_delete',0)->get();
         return view('index', ['items' => $items]);
     }
     public function create(Request $request){
@@ -31,6 +31,11 @@ class TodoController extends Controller
     public function delete(Request $request)
     {
         Todo::find($request->id)->delete();
+        return redirect('/');
+    }
+    public function logicalDelete(Request $request)
+    {
+        Todo::find($request->id)->update(['is_delete'=>1]);
         return redirect('/');
     }
 }

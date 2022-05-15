@@ -231,56 +231,6 @@
       height: 50px;
     }
 
-    .input-update {
-      width: 90%;
-      padding: 5px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      appearance: none;
-      font-size: 14px;
-      outline: none;
-    }
-
-    .button-add {
-      text-align: left;
-      border: 2px solid #dc70fa;
-      font-size: 12px;
-      color: #dc70fa;
-      background-color: #fff;
-      font-weight: bold;
-      padding: 8px 16px;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: 0.4s;
-      outline: none;
-    }
-
-    .button-add:hover {
-      background-color: #dc70fa;
-      border-color: #dc70fa;
-      color: #fff;
-    }
-
-    .button-update {
-      text-align: left;
-      border: 2px solid #fa9770;
-      font-size: 12px;
-      color: #fa9770;
-      background-color: #fff;
-      font-weight: bold;
-      padding: 8px 16px;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: 0.4s;
-      outline: none;
-    }
-
-    .button-update:hover {
-      background-color: #fa9770;
-      border-color: #fa9770;
-      color: #fff;
-    }
-
     .button-delete {
       text-align: left;
       border: 2px solid #71fadc;
@@ -301,32 +251,12 @@
       color: #fff;
     }
 
-    .button-logical-delete {
-      text-align: left;
-      border: 2px solid #3b4bdf;
-      font-size: 12px;
-      color: #3b4bdf;
-      background-color: #fff;
-      font-weight: bold;
-      padding: 8px 16px;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: 0.4s;
-      outline: none;
-    }
-
-    .button-logical-delete:hover {
-      background-color: #3b4bdf;
-      border-color: #3b4bdf;
-      color: #fff;
-    }
-
-    .done-button {
+    .button-back {
       display: inline-block;
       text-align: left;
-      border: 2px solid #3bdf6f;
+      border: 2px solid #6d7170;
       font-size: 12px;
-      color: #3bdf6f;
+      color: #6d7170;
       background-color: #fff;
       font-weight: bold;
       padding: 8px 16px;
@@ -335,73 +265,47 @@
       transition: 0.4s;
       outline: none;
       text-decoration: none;
-      margin-bottom: 10px;
     }
 
-    .done-button:hover{
-      background-color: #3bdf6f;
-      border-color: #3bdf6f;
+    .button-back:hover {
+      background-color: #6d7170;
+      border-color: #6d7170;
       color: #fff;
     }
+
   </style>
 </head>
 
 <body>
   <div class="container">
     <div class="card">
-      <p class="title mb-15">Todo List</p>
-      <a class="done-button" href="{{ route('todo.done') }}">完了済みタスク一覧</a>
-      @if (count($errors) > 0)
-      <ul>
-        @foreach ($errors->all() as $error)
-        <li>{{$error}}</li>
-        @endforeach
-      </ul>
-      @endif
+      <p class="title mb-15">完了済みタスク</p>
       <div class="todo">
-        <form action="/todo/create" method="post" class="flex between mb-30">
-          @csrf
-          <input type="text" class="input-add" name="content" />
-          <input class="button-add" type="submit" value="追加" />
-        </form>
         <table>
           <tr>
             <th>作成日</th>
             <th>タスク名</th>
-            <th>更新</th>
             <th>削除</th>
-            <th>完了</th>
           </tr>
           @foreach($items as $item)
           <tr>
             <td>
               {{ $item->created_at }}
             </td>
-            <form action="{{ route('todo.update', ['id' => $item->id]) }}" method="post">
-              @csrf
-              <td>
-                <input type="text" class="input-update" value="{{ $item->content }}" name="content" />
-              </td>
-              <td>
-                <button class="button-update">更新</button>
-              </td>
-            </form>
             <td>
-              <form action="{{ route('todo.delete', ['id' => $item->id]) }}" method="post">
+                <p type="text"name="content">{{ $item->content }}</p>
+            </td>
+            <td>
+              <form action="{{ route('todo.physicalDelete', ['id' => $item->id]) }}" method="post">
                 @csrf
                 <button class="button-delete">削除</button>
               </form>
             </td>
-            <td>
-                <form action="{{ route('todo.logicalDelete', ['id' => $item->id]) }}" method="post">
-                  @csrf
-                  <button class="button-logical-delete">完了</button>
-                </form>
-              </td>
           </tr>
           @endforeach
         </table>
       </div>
+      <a class="button-back" href="{{ route('todo.index') }}">戻る</a>
     </div>
   </div>
   </div>
