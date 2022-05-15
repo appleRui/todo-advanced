@@ -14,7 +14,7 @@ class AddTagIdToTodosTable extends Migration
     public function up()
     {
         Schema::table('todos', function (Blueprint $table) {
-            $table->foreignId('tag_id')->references('id')->on('tags');
+            $table->foreignId('tag_id')->constrained();
         });
     }
 
