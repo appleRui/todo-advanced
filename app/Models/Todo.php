@@ -20,4 +20,8 @@ class Todo extends Model
     {
         return $this->BelongsTo(User::class);
     }
+    public function tag()
+    {
+        return $this->belongsTo(Tag::class);
+    }
 }
