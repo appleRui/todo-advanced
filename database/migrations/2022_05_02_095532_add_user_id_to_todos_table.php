@@ -15,7 +15,7 @@ class AddUserIdToTodosTable extends Migration
     {
         Schema::table('todos', function (Blueprint $table) {
             //
-            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('user_id')->constrained();
         });
     }
 

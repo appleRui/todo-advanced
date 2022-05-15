@@ -24,6 +24,7 @@ class TodoFactory extends Factory
     {
         return [
             'content' => Str::random(10),
+            'tag_id' => $this->faker->numberBetween(1,5),
         ];
     }
 }
