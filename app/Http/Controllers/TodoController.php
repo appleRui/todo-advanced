@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Todo;
 use App\Models\Tag;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\TodoRequest;
 
 class TodoController extends Controller
 {
@@ -17,9 +18,8 @@ class TodoController extends Controller
         $items = $user->todos->where('is_delete',0);
         return view('index', ['items' => $items, 'user' => $user, 'tags' => $tags]);
     }
-    public function create(Request $request)
+    public function create( TodoRequest $request)
     {
-        $this->validate($request, Todo::$rules);
         $todo = new Todo;
         $form = $request->all();
         unset($form['_token_']);
