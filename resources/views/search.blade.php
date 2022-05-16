@@ -367,6 +367,28 @@
       color: #fff;
     }
 
+    .button-back {
+      display: inline-block;
+      text-align: left;
+      border: 2px solid #6d7170;
+      font-size: 12px;
+      color: #6d7170;
+      background-color: #fff;
+      font-weight: bold;
+      padding: 8px 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.4s;
+      outline: none;
+      text-decoration: none;
+    }
+
+    .button-back:hover {
+      background-color: #6d7170;
+      border-color: #6d7170;
+      color: #fff;
+    }
+
     .button-search {
       display: inline-block;
       text-align: left;
@@ -396,7 +418,7 @@
   <div class="container">
     <div class="card">
       <div class="card__header">
-        <p class="title mb-15">Todo List</p>
+        <p class="title mb-15">タスク検索</p>
         <div class="auth mb-15">
           <p class="detail">「{{ $user->name }}」でログイン中</p>
           <form method="post" action="{{ route('logout') }}">
@@ -405,8 +427,6 @@
           </form>
         </div>
       </div>
-      <a class="button-done" href="{{ route('todo.done') }}">完了済みタスク一覧</a>
-      <a class="button-search" href="{{ route('todo.find') }}">タスク検索</a>
       @if (count($errors) > 0)
       <ul>
         @foreach ($errors->all() as $error)
@@ -415,15 +435,16 @@
       </ul>
       @endif
       <div class="todo">
-        <form action="/todo/create" method="post" class="flex between mb-30">
+        <form action="/todo/search" method="get" class="flex between mb-30">
           @csrf
           <input type="text" class="input-add" name="content" />
           <select name="tag_id" class="select-tag">
+            <option disabled selected value</option>
             @foreach($tags as $tag)
             <option value="{{ $tag->id }}">{{ $tag->name }}</option>
             @endforeach
           </select>
-          <input class="button-add" type="submit" value="追加" />
+          <input class="button-add" type="submit" value="検索" />
         </form>
         <table>
           <tr>
@@ -464,6 +485,7 @@
           @endforeach
         </table>
       </div>
+      <a class="button-back" href="{{ route('todo.index') }}">戻る</a>
     </div>
   </div>
   </div>
