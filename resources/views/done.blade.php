@@ -272,7 +272,6 @@
       border-color: #6d7170;
       color: #fff;
     }
-
   </style>
 </head>
 

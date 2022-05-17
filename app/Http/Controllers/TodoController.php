@@ -53,4 +53,27 @@ class TodoController extends Controller
         Todo::find($request->id)->delete();
         return redirect('/todo/done');
     }
+    public function find()
+    {
+        $user = Auth::user();
+        $tags = Tag::all();
+        $items = $user->todos->where('is_delete',0);
+        return view('search', ['items' => $items, 'user' => $user, 'tags' => $tags]);
+    }
+    public function search(Request $request)
+    {
+        $user=Auth::user();
+        $tags = Tag::all();
+        $content = $request->input('content');
+        $tag_id = $request->input('tag_id');
+        $query = Todo::query();
+        if(!empty($content)) {
+            $query->where('content', 'LIKE', "%{$content}%");
+        }
+        if(!empty($tag_id)) {
+            $query->where('tag_id', 'LIKE', "%{$tag_id}%");
+        }
+        $items = $query->get();
+        return view('search', ['items' => $items, 'user' => $user, 'tags' => $tags]);
+    }
 }

@@ -22,6 +22,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/todo/done',[TodoController::class,'done'])->name('todo.done');
     Route::post('/todo/logicalDelete', [TodoController::class, 'logicalDelete'])->name('todo.logicalDelete');
     Route::post('/todo/physicalDelete',[TodoController::class,'physicalDelete'])->name('todo.physicalDelete');
+    Route::get('/todo/find', [TodoController::class, 'find'])->name('todo.find');
+    Route::get('/todo/search', [TodoController::class, 'search'])->name('todo.search');
+
 });
 
 
