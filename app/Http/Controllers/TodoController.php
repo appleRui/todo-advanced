@@ -15,7 +15,7 @@ class TodoController extends Controller
     {
         $user = Auth::user();
         $tags = Tag::all();
-        $items = $user->todos->where('is_delete',0);
+        $items = Todo::getTodos();
         return view('index', ['items' => $items, 'user' => $user, 'tags' => $tags]);
     }
     public function create( TodoRequest $request)
@@ -56,7 +56,7 @@ class TodoController extends Controller
     {
         $user = Auth::user();
         $tags = Tag::all();
-        $items = Todo::search();
+        $items = Todo::getTodos();
         return view('search', ['items' => $items, 'user' => $user, 'tags' => $tags]);
     }
     public function search(Request $request)
@@ -65,7 +65,7 @@ class TodoController extends Controller
         $tags = Tag::all();
         $keyword = $request['content'];
         $tag_id = $request['tag_id'];
-        $items = Todo::getSearch($keyword, $tag_id);
+        $items = Todo::doSearch($keyword, $tag_id);
         return view('search', ['items' => $items, 'user' => $user, 'tags' => $tags]);
     }
 }

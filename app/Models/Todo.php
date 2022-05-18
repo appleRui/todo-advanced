@@ -26,19 +26,19 @@ class Todo extends Model
     {
         return $this->belongsTo(Tag::class);
     }
+    public static function getTodos()
+    {
+        $user = Auth::user();
+        $items = $user->todos->where('is_delete',0);
+        return $items;
+    }
     public static function dones()
     {
         $user = Auth::user();
         $items = $user->todos->where('is_delete',1);
         return $items;
     }
-    public static function search()
-    {
-        $user = Auth::user();
-        $items = $user->todos->where('is_delete',0);
-        return $items;
-    }
-    public static function getSearch($keyword, $tag_id)
+    public static function doSearch($keyword, $tag_id)
     {
         $query = Todo::query();
         if(!empty($keyword)) {
@@ -47,7 +47,7 @@ class Todo extends Model
         if(!empty($tag_id)) {
             $query->where('tag_id', 'LIKE', "%{$tag_id}%");
         }
-        $items = $query->where('is_delete',0)->get();
+        $items = $query->get();
         return $items;
     }
 }
