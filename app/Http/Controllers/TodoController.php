@@ -56,7 +56,7 @@ class TodoController extends Controller
     {
         $user = Auth::user();
         $tags = Tag::all();
-        $items = Todo::getTodos();
+        $items = ;
         return view('search', ['items' => $items, 'user' => $user, 'tags' => $tags]);
     }
     public function search(Request $request)
