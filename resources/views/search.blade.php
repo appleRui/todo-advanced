@@ -467,7 +467,7 @@
               <td>
                 <select name="tag_id" class="select-tag">
                   @foreach($tags as $tag)
-                  <option {{ $todo->isSelected($tag->id) }} value="{{ $tag->id }}">{{ $tag->name }}</option>
+                  <option {{ $todo->isSelectedTag($tag->id) }} value="{{ $tag->id }}">{{ $tag->name }}</option>
                   @endforeach
                 </select>
               </td>

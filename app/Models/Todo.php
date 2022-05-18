@@ -51,7 +51,7 @@ class Todo extends Model
         return $items;
     }
 
-    function isSelected($tag_id)
+    function isSelectedTag($tag_id)
     {
         return $this->tag_id == $tag_id ? 'selected' : '';
     }
