@@ -38,9 +38,8 @@ class TodoController extends Controller
     }
     public function done()
     {
-        $user = Auth::user();
         $tags = Tag::all();
-        $items = $user->todos->where('is_delete',1);
+        $items = Todo::dones();
         return view('done', ['items' => $items, 'tags' => $tags]);
     }
     public function logicalDelete(Request $request)
@@ -57,23 +56,16 @@ class TodoController extends Controller
     {
         $user = Auth::user();
         $tags = Tag::all();
-        $items = $user->todos->where('is_delete',0);
+        $items = Todo::search();
         return view('search', ['items' => $items, 'user' => $user, 'tags' => $tags]);
     }
     public function search(Request $request)
     {
         $user=Auth::user();
         $tags = Tag::all();
-        $content = $request->input('content');
-        $tag_id = $request->input('tag_id');
-        $query = Todo::query();
-        if(!empty($content)) {
-            $query->where('content', 'LIKE', "%{$content}%");
-        }
-        if(!empty($tag_id)) {
-            $query->where('tag_id', 'LIKE', "%{$tag_id}%");
-        }
-        $items = $query->get();
+        $keyword = $request['content'];
+        $tag_id = $request['tag_id'];
+        $items = Todo::getSearch($keyword, $tag_id);
         return view('search', ['items' => $items, 'user' => $user, 'tags' => $tags]);
     }
 }
