@@ -361,7 +361,7 @@
       margin-bottom: 10px;
     }
 
-    .button-done:hover{
+    .button-done:hover {
       background-color: #3bdf6f;
       border-color: #3bdf6f;
       color: #fff;
@@ -406,7 +406,7 @@
       margin-bottom: 10px;
     }
 
-    .button-search:hover{
+    .button-search:hover {
       background-color: #cdf119;
       border-color: #cdf119;
       color: #fff;
@@ -440,7 +440,7 @@
           <input type="text" class="input-add" name="content" />
           <select name="tag_id" class="select-tag">
             <option disabled selected value</option>
-            @foreach($tags as $tag)
+              @foreach($tags as $tag)
             <option value="{{ $tag->id }}">{{ $tag->name }}</option>
             @endforeach
           </select>
@@ -467,7 +467,7 @@
               <td>
                 <select name="tag_id" class="select-tag">
                   @foreach($tags as $tag)
-                  <option {{ $item->tag_id == $tag->id ? 'selected' : '' }} value="{{ $tag->id }}">{{ $tag->name }}</option>
+                  <option {{ $item->isSelected($tag->id) }} value="{{ $tag->id }}">{{ $tag->name }}</option>
                   @endforeach
                 </select>
               </td>
@@ -477,7 +477,7 @@
             </form>
             <td>
               <form action="{{ route('todo.logicalDelete', ['id' => $item->id]) }}" method="post">
-              @csrf
+                @csrf
                 <button class="button-logical-delete">完了</button>
               </form>
             </td>

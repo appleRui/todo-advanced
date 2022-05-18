@@ -24,30 +24,35 @@ class Todo extends Model
     }
     public function tag()
     {
-        return $this->belongsTo(Tag::class);
+        return $this->BelongsTo(Tag::class);
     }
     public static function getTodos()
     {
         $user = Auth::user();
-        $items = $user->todos->where('is_delete',0);
+        $items = $user->todos->where('is_delete', 0);
         return $items;
     }
     public static function dones()
     {
         $user = Auth::user();
-        $items = $user->todos->where('is_delete',1);
+        $items = $user->todos->where('is_delete', 1);
         return $items;
     }
     public static function doSearch($keyword, $tag_id)
     {
-        $query = Todo::query();
-        if(!empty($keyword)) {
+        $query = self::query();
+        if (!empty($keyword)) {
             $query->where('content', 'LIKE', "%{$keyword}%");
         }
-        if(!empty($tag_id)) {
+        if (!empty($tag_id)) {
             $query->where('tag_id', 'LIKE', "%{$tag_id}%");
         }
         $items = $query->get();
         return $items;
+    }
+
+    function isSelected($tag_id)
+    {
+        return $this->tag_id == $tag_id ? 'selected' : '';
     }
 }

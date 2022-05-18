@@ -446,7 +446,7 @@
               <td>
                 <select name="tag_id" class="select-tag">
                   @foreach($tags as $tag)
-                  <option {{ $item->tag_id == $tag->id ? 'selected' : '' }} value="{{ $tag->id }}">{{ $tag->name }}</option>
+                  <option {{ $item->isSelected($tag->id) }} value="{{ $tag->id }}">{{ $tag->name }}</option>
                   @endforeach
                 </select>
               </td>

@@ -18,7 +18,7 @@ class TodoController extends Controller
         $items = Todo::getTodos();
         return view('index', ['items' => $items, 'user' => $user, 'tags' => $tags]);
     }
-    public function create( TodoRequest $request)
+    public function create(TodoRequest $request)
     {
         $todo = new Todo;
         $form = $request->all();
@@ -44,7 +44,7 @@ class TodoController extends Controller
     }
     public function logicalDelete(Request $request)
     {
-        Todo::find($request->id)->update(['is_delete'=>1]);
+        Todo::find($request->id)->update(['is_delete' => 1]);
         return redirect('/');
     }
     public function physicalDelete(Request $request)
@@ -61,7 +61,7 @@ class TodoController extends Controller
     }
     public function search(Request $request)
     {
-        $user=Auth::user();
+        $user = Auth::user();
         $tags = Tag::all();
         $keyword = $request['content'];
         $tag_id = $request['tag_id'];
