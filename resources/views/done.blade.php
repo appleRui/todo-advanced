@@ -287,19 +287,19 @@
             <th>タグ</th>
             <th>削除</th>
           </tr>
-          @foreach($items as $item)
+          @foreach($dones as $done)
           <tr>
             <td>
-              {{ $item->created_at }}
+              {{ $done->created_at }}
             </td>
             <td>
-              <p>{{ $item->content }}</p>
+              <p>{{ $done->content }}</p>
             </td>
             <td>
-              <p>{{ $item->tag->name }}</p>
-              </td>
+              <p>{{ $done->tag->name }}</p>
+            </td>
             <td>
-              <form action="{{ route('todo.physicalDelete', ['id' => $item->id]) }}" method="post">
+              <form action="{{ route('todo.physicalDelete', ['id' => $done->id]) }}" method="post">
                 @csrf
                 <button class="button-delete">削除</button>
               </form>
@@ -313,4 +313,5 @@
   </div>
   </div>
 </body>
+
 </html>
