@@ -15,10 +15,10 @@ class TodoController extends Controller
     {
         $user = Auth::user();
         $tags = Tag::all();
-        $items = Todo::getTodos();
-        return view('index', ['items' => $items, 'user' => $user, 'tags' => $tags]);
+        $todos = Todo::getTodos();
+        return view('index', ['todos' => $todos, 'user' => $user, 'tags' => $tags]);
     }
-    public function create( TodoRequest $request)
+    public function create(TodoRequest $request)
     {
         $todo = new Todo;
         $form = $request->all();
@@ -39,12 +39,12 @@ class TodoController extends Controller
     public function done()
     {
         $tags = Tag::all();
-        $items = Todo::dones();
-        return view('done', ['items' => $items, 'tags' => $tags]);
+        $dones = Todo::dones();
+        return view('done', ['dones' => $dones, 'tags' => $tags]);
     }
     public function logicalDelete(Request $request)
     {
-        Todo::find($request->id)->update(['is_delete'=>1]);
+        Todo::find($request->id)->update(['is_delete' => 1]);
         return redirect('/');
     }
     public function physicalDelete(Request $request)
@@ -56,16 +56,16 @@ class TodoController extends Controller
     {
         $user = Auth::user();
         $tags = Tag::all();
-        $items = [];
-        return view('search', ['items' => $items, 'user' => $user, 'tags' => $tags]);
+        $todos = [];
+        return view('search', ['todos' => $todos, 'user' => $user, 'tags' => $tags]);
     }
     public function search(Request $request)
     {
-        $user=Auth::user();
+        $user = Auth::user();
         $tags = Tag::all();
         $keyword = $request['content'];
         $tag_id = $request['tag_id'];
-        $items = Todo::doSearch($keyword, $tag_id);
-        return view('search', ['items' => $items, 'user' => $user, 'tags' => $tags]);
+        $todos = Todo::doSearch($keyword, $tag_id);
+        return view('search', ['todos' => $todos, 'user' => $user, 'tags' => $tags]);
     }
 }
