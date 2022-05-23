@@ -21,8 +21,7 @@ class TodoController extends Controller
     public function create(TodoRequest $request)
     {
         $todo = new Todo;
-        $form = $request->all();
-        unset($form['_token_']);
+        $form = $this->unsetToken($request);
         $form['user_id'] = Auth::id();
         $todo->fill($form)->save();
         return redirect('/');
@@ -31,8 +30,7 @@ class TodoController extends Controller
     {
         $this->validate($request, Todo::$rules);
         $todo = Todo::find($request->id);
-        $form = $request->all();
-        unset($form['_token_']);
+        $form = $this->unsetToken($request);
         $todo->fill($form)->save();
         return redirect('/');
     }
@@ -67,5 +65,12 @@ class TodoController extends Controller
         $tag_id = $request['tag_id'];
         $todos = Todo::doSearch($keyword, $tag_id);
         return view('search', ['todos' => $todos, 'user' => $user, 'tags' => $tags]);
+    }
+
+    public function unsetToken($request)
+    {
+        $form = $request->all();
+        unset($form['_token']);
+        return $form;
     }
 }
