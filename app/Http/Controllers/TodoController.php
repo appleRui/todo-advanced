@@ -7,6 +7,7 @@ use App\Models\Todo;
 use App\Models\Tag;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\TodoRequest;
+use App\Http\Requests\UpdateRequest;
 
 class TodoController extends Controller
 {
@@ -26,12 +27,12 @@ class TodoController extends Controller
         $todo->fill($form)->save();
         return redirect('/');
     }
-    public function update(Request $request)
+    public function update(UpdateRequest $request)
     {
-        $this->validate($request, Todo::$rules);
         $todo = Todo::find($request->id);
         $form = $this->unsetToken($request);
-        $todo->fill($form)->save();
+        $todo->content = $request->updateContent;
+        $todo->save();
         return redirect('/');
     }
     public function done()
