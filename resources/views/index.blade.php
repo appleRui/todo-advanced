@@ -407,13 +407,15 @@
       </div>
       <a class="button-done" href="{{ route('todo.done') }}">完了済みタスク一覧</a>
       <a class="button-search" href="{{ route('todo.find') }}">タスク検索</a>
-      @if (count($errors) > 0)
-      <ul>
-        @foreach ($errors->all() as $error)
-        <li>{{$error}}</li>
-        @endforeach
-      </ul>
-      @endif
+        @error('content')
+        <li>{{$message}}</li>
+        @enderror
+        @error('tag_id')
+        <li>{{$message}}</li>
+        @enderror
+        @error('updateContent')
+        <li>{{$message}}</li>
+        @enderror
       <div class="todo">
         <form action="/todo/create" method="post" class="flex between mb-30">
           @csrf
