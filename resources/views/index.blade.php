@@ -443,7 +443,7 @@
             <form action="{{ route('todo.update', ['id' => $todo->id]) }}" method="post">
               @csrf
               <td>
-                <input type="text" class="input-update" value="{{ $todo->content }}" name="updateContent" />
+                <input type="text" class="input-update" value="{{ $todo->content }}" name="content" />
               </td>
               <td>
                 <select name="tag_id" class="select-tag">
