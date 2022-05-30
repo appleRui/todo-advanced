@@ -57,7 +57,7 @@
               </select>
             </td>
             <td>
-              <button {{ $todo->isSoftDeleted()? 'disabled' : ' ' }} class="button-update">更新</button>
+              <button {{ $todo->isDisabled() }} class="button-update">更新</button>
             </td>
           </form>
           @if(!$todo->isSoftDeleted())
