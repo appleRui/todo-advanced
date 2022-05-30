@@ -24,9 +24,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/todo/physicalDelete',[TodoController::class,'physicalDelete'])->name('todo.physicalDelete');
     Route::get('/todo/find', [TodoController::class, 'find'])->name('todo.find');
     Route::get('/todo/search', [TodoController::class, 'search'])->name('todo.search');
-
 });
-
-
 
 require __DIR__ . '/auth.php';
