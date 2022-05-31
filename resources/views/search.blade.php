@@ -23,7 +23,7 @@
     @csrf
     <input type="text" class="input-add" name="content" />
     <select name="tag_id" class="select-tag">
-      <option disabled selected value </option>
+      <option disabled selected value ></option>
         @foreach($tags as $tag)
       <option value="{{ $tag->id }}">{{ $tag->name }}</option>
       @endforeach
@@ -36,7 +36,7 @@
       <th>タスク名</th>
       <th>タグ</th>
       <th>更新</th>
-      <th>完了</th>
+      <th>操作</th>
     </tr>
     @foreach($todos as $todo)
     <tr>
@@ -56,15 +56,24 @@
           </select>
         </td>
         <td>
-          <button class="button-update">更新</button>
+          <button {{ $todo->isDisabled() }} class="button-update">更新</button>
         </td>
       </form>
+      @if(!$todo->isSoftDeleted())
       <td>
-        <form action="{{ route('todo.softDelete', ['id' => $todo->id]) }}" method="post">
+        <form action="{{ route('todo.logicalDelete', ['id' => $todo->id]) }}" method="post">
           @csrf
-          <button class="button-soft-delete">完了</button>
+          <button class="button-logical-delete">完了</button>
         </form>
       </td>
+      @else
+      <td>
+        <form action="{{ route('todo.physicalDelete', ['id' => $todo->id]) }}" method="post">
+          @csrf
+          <button class="button-logical-delete">削除</button>
+        </form>
+      </td>
+      @endif
     </tr>
     @endforeach
   </table>
