@@ -1,19 +1,1 @@
-.button-delete {
-  text-align: left;
-  border: 2px solid #71fadc;
-  font-size: 12px;
-  color: #71fadc;
-  background-color: #fff;
-  font-weight: bold;
-  padding: 8px 16px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.4s;
-  outline: none;
-}
 
-.button-delete:hover {
-  background-color: #71fadc;
-  border-color: #71fadc;
-  color: #fff;
-}
