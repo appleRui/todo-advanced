@@ -76,10 +76,6 @@ video {
   background: transparent;
 }
 
-body {
-  line-height: 1;
-}
-
 article,
 aside,
 details,
@@ -93,7 +89,6 @@ nav,
 section {
   display: block;
 }
-
 nav ul {
   list-style: none;
 }
