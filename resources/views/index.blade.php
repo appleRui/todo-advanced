@@ -66,9 +66,9 @@
             </td>
           </form>
           <td>
-            <form action="{{ route('todo.logicalDelete', ['id' => $todo->id]) }}" method="post">
+            <form action="{{ route('todo.softDelete', ['id' => $todo->id]) }}" method="post">
               @csrf
-              <button class="button-logical-delete">完了</button>
+              <button class="button-soft-delete">完了</button>
             </form>
           </td>
         </tr>

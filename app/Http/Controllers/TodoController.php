@@ -39,12 +39,12 @@ class TodoController extends Controller
         $dones = Todo::dones();
         return view('done', ['dones' => $dones, 'tags' => $tags]);
     }
-    public function logicalDelete(Request $request)
+    public function softDelete(Request $request)
     {
         Todo::find($request->id)->update(['is_delete' => 1]);
         return redirect('/');
     }
-    public function physicalDelete(Request $request)
+    public function forceDelete(Request $request)
     {
         Todo::find($request->id)->delete();
         return redirect('/todo/done');

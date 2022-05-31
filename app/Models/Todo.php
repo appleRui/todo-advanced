@@ -14,10 +14,6 @@ class Todo extends Model
 
     protected $guarded = array('id');
 
-    public static $rules = array(
-        'content' => 'required|max:20',
-    );
-
     public function user()
     {
         return $this->BelongsTo(User::class);
