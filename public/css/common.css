@@ -67,17 +67,13 @@ time,
 mark,
 audio,
 video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    outline: 0;
-    font-size: 100%;
-    vertical-align: baseline;
-    background: transparent;
-}
-
-body {
-    line-height: 1;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
 }
 
 article,
@@ -91,248 +87,273 @@ hgroup,
 menu,
 nav,
 section {
-    display: block;
+  display: block;
 }
-
 nav ul {
-    list-style: none;
+  list-style: none;
 }
 
 blockquote,
 q {
-    quotes: none;
+  quotes: none;
 }
 
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-    content: "";
-    content: none;
+  content: "";
+  content: none;
 }
 
 a {
-    margin: 0;
-    padding: 0;
-    font-size: 100%;
-    vertical-align: baseline;
-    background: transparent;
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
 }
 
 /* change colours to suit your needs */
 ins {
-    background-color: #ff9;
-    color: #000;
-    text-decoration: none;
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none;
 }
 
 /* change colours to suit your needs */
 mark {
-    background-color: #ff9;
-    color: #000;
-    font-style: italic;
-    font-weight: bold;
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
 }
 
 del {
-    text-decoration: line-through;
+  text-decoration: line-through;
 }
 
 abbr[title],
 dfn[title] {
-    border-bottom: 1px dotted;
-    cursor: help;
+  border-bottom: 1px dotted;
+  cursor: help;
 }
 
 table {
-    border-collapse: collapse;
-    border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 /* change border colour to suit your needs */
 hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #cccccc;
-    margin: 1em 0;
-    padding: 0;
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0;
 }
 
 input,
 select {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 .flex {
-    display: flex;
+  display: flex;
 }
 
 .between {
-    justify-content: space-between;
+  justify-content: space-between;
 }
 
 .mb-15 {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 .mb-30 {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .container {
-    background-color: #2d197c;
-    height: 100vh;
-    width: 100vw;
-    position: relative;
+  background-color: #2d197c;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
 }
 
 .card {
-    background-color: #fff;
-    width: 50vw;
-    padding: 30px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 10px;
+  background-color: #fff;
+  width: 50vw;
+  padding: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
 }
 
 .card__header {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .title {
-    font-weight: bold;
-    font-size: 24px;
+  font-weight: bold;
+  font-size: 24px;
 }
 
 .auth {
-    display: flex;
-    align-items: center;
-    font-size: 16px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
 }
 
 .auth>.detail {
-    margin-right: 1rem;
+  margin-right: 1rem;
 }
 
 .button-logout {
-    text-align: left;
-    border: 2px solid #FF0000;
-    font-size: 12px;
-    color: #FF0000;
-    background-color: #fff;
-    font-weight: bold;
-    padding: 8px 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.4s;
-    outline: none;
+  text-align: left;
+  border: 2px solid #FF0000;
+  font-size: 12px;
+  color: #FF0000;
+  background-color: #fff;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.4s;
+  outline: none;
 }
 
 .button-logout:hover {
-    background-color: #FF0000;
-    border-color: #FF0000;
-    color: #fff;
+  background-color: #FF0000;
+  border-color: #FF0000;
+  color: #fff;
 }
 
 .select-tag {
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 14px;
-    outline: none;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  outline: none;
 }
 
 .input-add {
-    width: 75%;
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    appearance: none;
-    font-size: 14px;
-    outline: none;
+  width: 75%;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  appearance: none;
+  font-size: 14px;
+  outline: none;
 }
 
 table {
-    text-align: center;
-    width: 100%
+  text-align: center;
+  width: 100%
 }
 
 tr {
-    height: 50px;
+  height: 50px;
 }
 
 .input-update {
-    width: 90%;
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    appearance: none;
-    font-size: 14px;
-    outline: none;
+  width: 90%;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  appearance: none;
+  font-size: 14px;
+  outline: none;
 }
 
 .button-add {
-    text-align: left;
-    border: 2px solid #dc70fa;
-    font-size: 12px;
-    color: #dc70fa;
-    background-color: #fff;
-    font-weight: bold;
-    padding: 8px 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.4s;
-    outline: none;
+  text-align: left;
+  border: 2px solid #dc70fa;
+  font-size: 12px;
+  color: #dc70fa;
+  background-color: #fff;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.4s;
+  outline: none;
 }
 
 .button-add:hover {
-    background-color: #dc70fa;
-    border-color: #dc70fa;
-    color: #fff;
+  background-color: #dc70fa;
+  border-color: #dc70fa;
+  color: #fff;
 }
 
 .button-update {
-    text-align: left;
-    border: 2px solid #fa9770;
-    font-size: 12px;
-    color: #fa9770;
-    background-color: #fff;
-    font-weight: bold;
-    padding: 8px 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.4s;
-    outline: none;
+  text-align: left;
+  border: 2px solid #fa9770;
+  font-size: 12px;
+  color: #fa9770;
+  background-color: #fff;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.4s;
+  outline: none;
 }
 
 .button-update:hover {
-    background-color: #fa9770;
-    border-color: #fa9770;
-    color: #fff;
+  background-color: #fa9770;
+  border-color: #fa9770;
+  color: #fff;
 }
 
-.button-logical-delete {
-    text-align: left;
-    border: 2px solid #3b4bdf;
-    font-size: 12px;
-    color: #3b4bdf;
-    background-color: #fff;
-    font-weight: bold;
-    padding: 8px 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.4s;
-    outline: none;
+.button-update:disabled {
+  background-color: rgba(19, 1, 1, 0.3);
+  color: rgba(255, 255, 255, 0.3);
+  border-color: rgba(195, 195, 195, 0.3);
 }
 
-.button-logical-delete:hover {
-    background-color: #3b4bdf;
-    border-color: #3b4bdf;
-    color: #fff;
+.button-soft-delete {
+  text-align: left;
+  border: 2px solid #3b4bdf;
+  font-size: 12px;
+  color: #3b4bdf;
+  background-color: #fff;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.4s;
+  outline: none;
+}
+
+.button-soft-delete:hover {
+  background-color: #3b4bdf;
+  border-color: #3b4bdf;
+  color: #fff;
+}
+
+.button-delete {
+  text-align: left;
+  border: 2px solid #71fadc;
+  font-size: 12px;
+  color: #71fadc;
+  background-color: #fff;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.4s;
+  outline: none;
+}
+
+.button-delete:hover {
+  background-color: #71fadc;
+  border-color: #71fadc;
+  color: #fff;
 }
 
 .button-back {
@@ -356,5 +377,3 @@ tr {
   border-color: #6d7170;
   color: #fff;
 }
-
-

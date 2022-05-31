@@ -24,14 +24,14 @@ class TodoController extends Controller
         $form = $this->unsetToken($request);
         $form['user_id'] = Auth::id();
         $todo->fill($form)->save();
-        return redirect('/');
+        return back();
     }
     public function update(TodoRequest $request)
     {
         $todo = Todo::find($request->id);
         $form = $this->unsetToken($request);
         $todo->fill($form)->save();
-        return redirect('/');
+        return back();
     }
     public function done()
     {
@@ -39,15 +39,15 @@ class TodoController extends Controller
         $dones = Todo::dones();
         return view('done', ['dones' => $dones, 'tags' => $tags]);
     }
-    public function logicalDelete(Request $request)
+    public function softDelete(Request $request)
     {
         Todo::find($request->id)->update(['is_delete' => 1]);
-        return redirect('/');
+        return back();
     }
-    public function physicalDelete(Request $request)
+    public function forceDelete(Request $request)
     {
         Todo::find($request->id)->delete();
-        return redirect('/todo/done');
+        return back();
     }
     public function find()
     {

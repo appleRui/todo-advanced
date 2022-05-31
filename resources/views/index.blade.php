@@ -17,15 +17,13 @@
   </div>
   <a class="button-done" href="{{ route('todo.done') }}">完了済みタスク一覧</a>
   <a class="button-search" href="{{ route('todo.find') }}">タスク検索</a>
-  @error('content')
-    <li>{{$message}}</li>
-  @enderror
-  @error('tag_id')
-    <li>{{$message}}</li>
-  @enderror
-  @error('updateContent')
-    <li>{{$message}}</li>
-  @enderror
+  @if (count($errors) > 0)
+    <ul>
+    @foreach ($errors->all() as $error)
+      <li>{{$error}}</li>
+    @endforeach
+  </ul>
+  @endif
   <div class="todo">
     <form action="/todo/create" method="post" class="flex between mb-30">
       @csrf
@@ -68,9 +66,9 @@
             </td>
           </form>
           <td>
-            <form action="{{ route('todo.logicalDelete', ['id' => $todo->id]) }}" method="post">
+            <form action="{{ route('todo.softDelete', ['id' => $todo->id]) }}" method="post">
               @csrf
-              <button class="button-logical-delete">完了</button>
+              <button class="button-soft-delete">完了</button>
             </form>
           </td>
         </tr>

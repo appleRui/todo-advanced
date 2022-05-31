@@ -14,10 +14,6 @@ class Todo extends Model
 
     protected $guarded = array('id');
 
-    public static $rules = array(
-        'content' => 'required|max:20',
-    );
-
     public function user()
     {
         return $this->BelongsTo(User::class);
@@ -29,14 +25,14 @@ class Todo extends Model
     public static function getTodos()
     {
         $user = Auth::user();
-        $items = $user->todos->where('is_delete', 0);
-        return $items;
+        $todos = $user->todos->where('is_delete', 0);
+        return $todos;
     }
     public static function dones()
     {
         $user = Auth::user();
-        $items = $user->todos->where('is_delete', 1);
-        return $items;
+        $dones = $user->todos->where('is_delete', 1);
+        return $dones;
     }
     public static function doSearch($keyword, $tag_id)
     {
@@ -47,12 +43,17 @@ class Todo extends Model
         if (!empty($tag_id)) {
             $query->where('tag_id', 'LIKE', "%{$tag_id}%");
         }
-        $items = $query->get();
-        return $items;
+        $results = $query->get();
+        return $results;
     }
-
     function isSelectedTag($tag_id)
     {
         return $this->tag_id == $tag_id ? 'selected' : '';
+    }
+    function isSoftDeleted(){
+      return (bool)$this->is_delete;
+    }
+    function isDisabled(){
+      return $this->isSoftDeleted() ? 'disabled' : ' ';
     }
 }
