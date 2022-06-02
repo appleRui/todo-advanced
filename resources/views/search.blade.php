@@ -36,7 +36,7 @@
       <th>タスク名</th>
       <th>タグ</th>
       <th>更新</th>
-      <th>操作</th>
+      <th>削除</th>
     </tr>
     @foreach($todos as $todo)
     <tr>
@@ -56,24 +56,15 @@
           </select>
         </td>
         <td>
-          <button {{ $todo->isDisabled() }} class="button-update">更新</button>
+          <button class="button-update">更新</button>
         </td>
       </form>
-      @if(!$todo->isSoftDeleted())
       <td>
-        <form action="{{ route('todo.softDelete', ['id' => $todo->id]) }}" method="post">
-          @csrf
-          <button class="button-soft-delete">完了</button>
-        </form>
-      </td>
-      @else
-      <td>
-        <form action="{{ route('todo.forceDelete', ['id' => $todo->id]) }}" method="post">
+        <form action="{{ route('todo.delete', ['id' => $todo->id]) }}" method="post">
           @csrf
           <button class="button-delete">削除</button>
         </form>
       </td>
-      @endif
     </tr>
     @endforeach
   </table>

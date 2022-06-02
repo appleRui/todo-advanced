@@ -50,10 +50,4 @@ class Todo extends Model
     {
         return $this->tag_id == $tag_id ? 'selected' : '';
     }
-    function isSoftDeleted(){
-      return (bool)$this->is_delete;
-    }
-    function isDisabled(){
-      return $this->isSoftDeleted() ? 'disabled' : ' ';
-    }
 }

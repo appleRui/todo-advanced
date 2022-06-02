@@ -316,26 +316,6 @@ tr {
   border-color: rgba(195, 195, 195, 0.3);
 }
 
-.button-soft-delete {
-  text-align: left;
-  border: 2px solid #3b4bdf;
-  font-size: 12px;
-  color: #3b4bdf;
-  background-color: #fff;
-  font-weight: bold;
-  padding: 8px 16px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.4s;
-  outline: none;
-}
-
-.button-soft-delete:hover {
-  background-color: #3b4bdf;
-  border-color: #3b4bdf;
-  color: #fff;
-}
-
 .button-delete {
   text-align: left;
   border: 2px solid #71fadc;
