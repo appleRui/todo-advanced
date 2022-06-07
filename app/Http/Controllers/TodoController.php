@@ -33,20 +33,10 @@ class TodoController extends Controller
         $todo->fill($form)->save();
         return back();
     }
-    public function done()
+    public function delete(Request $request)
     {
-        $tags = Tag::all();
-        $dones = Todo::dones();
-        return view('done', ['dones' => $dones, 'tags' => $tags]);
-    }
-    public function softDelete(Request $request)
-    {
-        Todo::find($request->id)->update(['is_delete' => 1]);
-        return back();
-    }
-    public function forceDelete(Request $request)
-    {
-        Todo::find($request->id)->delete();
+        $todo = Todo::find($request->id);
+        $todo->delete();
         return back();
     }
     public function find()
