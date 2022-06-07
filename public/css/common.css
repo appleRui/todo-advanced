@@ -213,11 +213,9 @@ select {
   margin-right: 1rem;
 }
 
-.button-logout {
+.btn {
   text-align: left;
-  border: 2px solid #FF0000;
   font-size: 12px;
-  color: #FF0000;
   background-color: #fff;
   font-weight: bold;
   padding: 8px 16px;
@@ -227,7 +225,12 @@ select {
   outline: none;
 }
 
-.button-logout:hover {
+.btn-logout {
+  border: 2px solid #FF0000;
+  color: #FF0000;
+}
+
+.btn-logout:hover {
   background-color: #FF0000;
   border-color: #FF0000;
   color: #fff;
@@ -270,89 +273,63 @@ tr {
   outline: none;
 }
 
-.button-add {
-  text-align: left;
+.btn-add {
   border: 2px solid #dc70fa;
-  font-size: 12px;
   color: #dc70fa;
-  background-color: #fff;
-  font-weight: bold;
-  padding: 8px 16px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.4s;
-  outline: none;
 }
 
-.button-add:hover {
+.btn-add:hover {
   background-color: #dc70fa;
   border-color: #dc70fa;
   color: #fff;
 }
 
-.button-update {
-  text-align: left;
+.btn-update {
   border: 2px solid #fa9770;
-  font-size: 12px;
   color: #fa9770;
-  background-color: #fff;
-  font-weight: bold;
-  padding: 8px 16px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.4s;
-  outline: none;
 }
 
-.button-update:hover {
+.btn-update:hover {
   background-color: #fa9770;
   border-color: #fa9770;
   color: #fff;
 }
 
-.button-update:disabled {
+.btn-update:disabled {
   background-color: rgba(19, 1, 1, 0.3);
   color: rgba(255, 255, 255, 0.3);
   border-color: rgba(195, 195, 195, 0.3);
 }
 
-.button-delete {
-  text-align: left;
-  border: 2px solid #71fadc;
-  font-size: 12px;
-  color: #71fadc;
-  background-color: #fff;
-  font-weight: bold;
-  padding: 8px 16px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.4s;
-  outline: none;
+.btn-soft-delete {
+  border: 2px solid #3b4bdf;
+  color: #3b4bdf;
 }
 
-.button-delete:hover {
+.btn-soft-delete:hover {
+  background-color: #3b4bdf;
+  border-color: #3b4bdf;
+  color: #fff;
+}
+
+.btn-delete {
+  border: 2px solid #71fadc;
+  color: #71fadc;
+}
+
+.btn-delete:hover {
   background-color: #71fadc;
   border-color: #71fadc;
   color: #fff;
 }
 
-.button-back {
-  display: inline-block;
-  text-align: left;
+.btn-back {
   border: 2px solid #6d7170;
-  font-size: 12px;
   color: #6d7170;
   background-color: #fff;
-  font-weight: bold;
-  padding: 8px 16px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.4s;
-  outline: none;
-  text-decoration: none;
 }
 
-.button-back:hover {
+.btn-back:hover {
   background-color: #6d7170;
   border-color: #6d7170;
   color: #fff;
