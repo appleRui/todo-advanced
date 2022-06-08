@@ -15,7 +15,7 @@ class TodoController extends Controller
     {
         $user = Auth::user();
         $tags = Tag::all();
-        $todos = Todo::getTodos();
+        $todos = Todo::all();
         return view('index', ['todos' => $todos, 'user' => $user, 'tags' => $tags]);
     }
     public function create(TodoRequest $request)
