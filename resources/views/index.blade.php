@@ -11,11 +11,11 @@
     <p class="detail">「{{ $user->name }}」でログイン中</p>
     <form method="post" action="{{ route('logout') }}">
       @csrf
-      <input class="button-logout" type="submit" value="ログアウト">
+      <input class="btn btn-logout" type="submit" value="ログアウト">
     </form>
   </div>
 </div>
-<a class="button-search" href="{{ route('todo.find') }}">タスク検索</a>
+<a class="btn btn-search" href="{{ route('todo.find') }}">タスク検索</a>
 @if (count($errors) > 0)
 <ul>
   @foreach ($errors->all() as $error)
@@ -32,7 +32,7 @@
         <option value="{{ $tag->id }}">{{ $tag->name }}</option>
       @endforeach
     </select>
-    <input class="button-add" type="submit" value="追加" />
+    <input class="btn btn-add" type="submit" value="追加" />
   </form>
   <table>
     <tr>
@@ -60,13 +60,13 @@
           </select>
         </td>
         <td>
-          <button class="button-update">更新</button>
+          <button class="btn btn-update">更新</button>
         </td>
       </form>
       <td>
         <form action="{{ route('todo.delete', ['id' => $todo->id]) }}" method="post">
           @csrf
-          <button class="button-delete">削除</button>
+          <button class="btn btn-delete">削除</button>
         </form>
       </td>
     </tr>

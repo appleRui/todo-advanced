@@ -57,7 +57,7 @@
         </td>
         <td>
 
-          <button class="button-update">更新</button>
+          <button class="btn btn-update">更新</button>
         </td>
       </form>
       <td>

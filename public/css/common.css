@@ -301,17 +301,6 @@ tr {
   border-color: rgba(195, 195, 195, 0.3);
 }
 
-.btn-soft-delete {
-  border: 2px solid #3b4bdf;
-  color: #3b4bdf;
-}
-
-.btn-soft-delete:hover {
-  background-color: #3b4bdf;
-  border-color: #3b4bdf;
-  color: #fff;
-}
-
 .btn-delete {
   border: 2px solid #71fadc;
   color: #71fadc;
@@ -323,10 +312,25 @@ tr {
   color: #fff;
 }
 
+.btn-search {
+  display: inline-block;
+  border: 2px solid #cdf119;
+  color: #cdf119;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+.btn-search:hover {
+  background-color: #cdf119;
+  border-color: #cdf119;
+  color: #fff;
+}
+
 .btn-back {
   border: 2px solid #6d7170;
   color: #6d7170;
   background-color: #fff;
+  text-decoration: none;
 }
 
 .btn-back:hover {
