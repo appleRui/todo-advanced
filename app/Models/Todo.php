@@ -4,8 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Auth;
-
 
 class Todo extends Model
 {
@@ -20,18 +18,6 @@ class Todo extends Model
     public function tag()
     {
         return $this->BelongsTo(Tag::class);
-    }
-    public static function getTodos()
-    {
-        $user = Auth::user();
-        $todos = $user->todos->where('is_delete', 0);
-        return $todos;
-    }
-    public static function dones()
-    {
-        $user = Auth::user();
-        $dones = $user->todos->where('is_delete', 1);
-        return $dones;
     }
     public static function doSearch($keyword, $tag_id)
     {
